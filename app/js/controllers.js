@@ -8,12 +8,11 @@ angular.module('myApp.controllers', [])
       $scope.dates = data
     });
 
-
-
-    $scope.addPost = function(name,place,day,stars,back){
-      $scope.dates.push({name: name, place: place, day: day, stars: stars, back: back})
+    $scope.addPost = function(date){
+      $scope.dates.push(date.date)
       console.log($scope.dates[3])
       console.log($scope.dates.length)
+      date.date = {};
     }
 
     $scope.orderProp = '-day'
