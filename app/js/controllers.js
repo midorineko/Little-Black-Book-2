@@ -8,8 +8,22 @@ angular.module('myApp.controllers', [])
       $scope.dates = data
     });
 
+
+
+    $scope.addPost = function(name,place,day,stars,back){
+      $scope.dates.push({name: name, place: place, day: day, stars: stars, back: back})
+      console.log($scope.dates[3])
+      console.log($scope.dates.length)
+    }
+
     $scope.orderProp = '-day'
   }])
   .controller('MyCtrl2', ['$scope', function($scope) {
 
   }]);
+  // .controller('DateController', function(){
+  //   this.date = {};
+  //   this.addNewDate = function(product){
+  //     console.log(this.product)
+  //   };
+  // });
