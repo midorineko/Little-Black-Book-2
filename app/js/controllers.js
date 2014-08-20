@@ -8,7 +8,7 @@ angular.module('myApp.controllers', [])
       $scope.dates = data
     });
 
-    $scope.orderProp = 'name'
+    $scope.orderProp = '-day'
   }])
   .controller('MyCtrl2', ['$scope', function($scope) {
 
