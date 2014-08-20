@@ -13,6 +13,29 @@ Sort: <select ng-model="orderProp">
     {{date.place}},
     {{date.day}},
     Stars: {{date.stars}},
-    Return: {{date.return}}
+    Back: {{date.back}}
+    <!-- <button ng-show="date.return"> Back? </button> -->
   </li>
+
+<h3>Add New Date</h3>
+<form name="DateForm" ng-controller="MyCtrl1 as ndCtrl" ng-submit="ndCtrl.addDate(date)">
+  <li> Name: {{ndCtrl.date.name}}
+    Place: {{ndCtrl.date.place}}
+    Day: {{ndCtrl.date.day}}
+    Stars: {{ndCtrl.date.stars}}
+    Back: {{ndCtrl.date.back}}</li>
+  <input ng-model="ndCtrl.date.name" type="text" placeholder="name"/>
+  <input ng-model="ndCtrl.date.place" type="text" placeholder="place"/>
+  <input ng-model="ndCtrl.date.day" type="text" placeholder="day"/>
+  <select ng-model="ndCtrl.date.stars">
+    <option value="1"> 1 star </option>
+    <option value="2"> 2 star </option>
+    <option value="3"> 3 star </option>
+    <option value="4"> 4 star </option>
+    <option value="5"> 5 star </option>
+  </select>
+  <input ng-model="ndCtrl.date.back" type="checkbox" /> Come Back?
+<button type="button" ng-click="addPost(ndCtrl.date.name,ndCtrl.date.place,ndCtrl.date.day,ndCtrl.date.stars,ndCtrl.date.back )">Add Date</button>
+</form>
+
 </ul>
