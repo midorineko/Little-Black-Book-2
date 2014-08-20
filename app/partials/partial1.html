@@ -1,16 +1,18 @@
 <p>This is the partial for view 1.</p>
 
-<select ng-model="orderProp">
+Search: <input ng-model="query">
+Sort: <select ng-model="orderProp">
   <option value="name">Alphabetical</option>
-  <option value="day">Recent</option>
+  <option value="day">Old</option>
+  <option value="-day">Recent</option>
 </select>
 
 <ul>
-  <li ng-repeat="date in dates | orderBy:orderProp">
-    {{name}}
-    {{place}}
-    {{day}}
-    {{stars}}
-    {{return}}
+  <li ng-repeat="date in dates | orderBy:orderProp | filter:query">
+    {{date.name}},
+    {{date.place}},
+    {{date.day}},
+    Stars: {{date.stars}},
+    Return: {{date.return}}
   </li>
 </ul>
