@@ -2,26 +2,28 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope','$http', function($scope, $http) {
+var banana = angular.module('myApp.controllers', [])
+
+banana.controller('MyCtrl1', ['$scope','$http', function($scope, $http) {
+    //this == controller
     $http.get('dates/dates.json').success(function(data){
-      $scope.dates = data
-    });
+      this.dates = data;
+    }.bind(this));
 
+    this.date = {};
 
-
-    var i = 3
-    $scope.addPost = function(date){
-      $scope.dates.push(date.date)
-      console.log($scope.dates[i])
-      console.log($scope.dates.length)
-      date.date = {};
-      i++
-    }
+    this.addPost = function(controller){
+      console.log(controller.date)
+      console.log(this)
+      this.dates.push(controller.date)
+      controller.date = {};
+    };
 
     $scope.orderProp = '-day'
   }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
+
+
+  banana.controller('MyCtrl2', ['$scope', function($scope) {
 
   }]);
   // .controller('DateController', function(){
