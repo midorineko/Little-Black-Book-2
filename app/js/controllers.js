@@ -10,10 +10,13 @@ angular.module('myApp.controllers', [])
 
 
 
-    $scope.addPost = function(name,place,day,stars,back){
-      $scope.dates.push({name: name, place: place, day: day, stars: stars, back: back})
-      console.log($scope.dates[3])
+    var i = 3
+    $scope.addPost = function(date){
+      $scope.dates.push(date.date)
+      console.log($scope.dates[i])
       console.log($scope.dates.length)
+      date.date = {};
+      i++
     }
 
     $scope.orderProp = '-day'
