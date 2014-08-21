@@ -7,8 +7,8 @@ Sort: <select ng-model="orderProp">
   <option value="-day">Recent</option>
 </select>
 
-<ul>
-  <li ng-repeat="date in dates | orderBy:orderProp | filter:query">
+<ul ng-controller = "MyCtrl1 as dctrl">
+  <li ng-repeat="date in dctrl.dates | orderBy:orderProp | filter:query">
     {{date.name}},
     {{date.place}},
     {{date.day}},
@@ -16,9 +16,10 @@ Sort: <select ng-model="orderProp">
     Back: {{date.back}}
     <!-- <button ng-show="date.return"> Back? </button> -->
   </li>
+</ul>
 
 <h3>Add New Date</h3>
-<form name="DateForm" ng-controller="MyCtrl1 as ndCtrl" ng-submit="ndCtrl.addDate(date)">
+<form name="DateForm" ng-controller="MyCtrl1 as ndCtrl" ng-submit="ndCtrl.addPost(ndCtrl.date)">
   <li> Name: {{ndCtrl.date.name}}
     Place: {{ndCtrl.date.place}}
     Day: {{ndCtrl.date.day}}
@@ -35,7 +36,7 @@ Sort: <select ng-model="orderProp">
     <option value="5"> 5 star </option>
   </select>
   <input ng-model="ndCtrl.date.back" type="checkbox" /> Come Back?
-<button type="button" ng-click="addPost(ndCtrl)">Add Date</button>
+<button type="button" ng-click="ndCtrl.addPost(ndCtrl)">Add Date</button>
+  <!-- <input type="submit" value="Submit" /> -->
 </form>
 
-</ul>
